@@ -1,0 +1,105 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <legend>login:Mr. Rohit Sengar</legend>
+            </div>
+            <!-- panel preview -->
+            <div class="col-sm-5">
+                <h4>Add payment:</h4>
+                <div class="panel panel-default">
+                    <div class="panel-body form-horizontal payment-form">
+                        <form #billingForm="ngForm" (ngSubmit)="submitBill(billingForm.value)">
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-12 control-label">Customer Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="custName" name="custName" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-12 control-label">Dish Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="dishName" name="dishName" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-3 control-label">Amount</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="amount" name="amount" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-3 control-label">Status</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="status" name="status" ngModel>
+                                        <option>Paid</option>
+                                        <option>Unpaid</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="date" class="col-sm-3 control-label">Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="date" name="date" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 text-right">
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-plus">Add</span> 
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- / panel preview -->
+            <div class="col-sm-7">
+                <h4>Preview:</h4>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table preview-table">
+                                <thead>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Dish Name</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{custName}}</td>
+                                        <td>{{dishName}}</td>
+                                        <td>{{amount}}</td>
+                                        <td>{{status}}</td>
+                                        <td>{{date}}</td>
+                                        
+                                    </tr>
+                                </tbody> <!-- preview content goes here-->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-right">
+                    <div class="col-xs-12">
+                        <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr style="border:1px dashed #dddddd;">
+                        <button type="button" class="btn btn-primary btn-block" (click)="pushBill(billdata)">Submit all and finish</button>
+                        <br><br>
+                        <div class="alert alert-success" role="alert" *ngIf="flag">
+                            This record added successfully
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

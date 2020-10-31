@@ -21,7 +21,8 @@
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -45,5 +46,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitsengar001/angularclass_project.git"
+  },
+  "author": "rohit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohitsengar001/angularclass_project/issues"
+  },
+  "homepage": "https://github.com/rohitsengar001/angularclass_project#readme"
 }
