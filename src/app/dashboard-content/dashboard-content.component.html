@@ -1,52 +1,130 @@
-<div class="card mb-4">
-    <div class="card-header">
-        <i class="fas fa-table mr-1"></i>
-        DataTable Example
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Sr.No.</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Dish Name</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                        
-                        
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Sr.No.</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Dish Name</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-                <tbody *ngFor="let user of users">
-                    <tr>
-                        <td>{{user.id}}</td>
-                        <td>{{user.date}}</td>
-                        <td>{{user.custName | uppercase}}</td>
-                        <td>{{user.dishName | uppercase}}</td>
-                        <td>{{user.amount}}</td>
-                        <td>{{user.status}}</td>
-                        <td><button type="button" class="btn-warning">Edit</button><button type="button" class="btn-danger">Delete</button></td>
-                        
-                        
-                       
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            DataTable Example
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Sr.No.</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Dish Name</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Sr.No.</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Dish Name</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody *ngFor="let user of users">
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.date }}</td>
+                            <td>{{ user.custName | uppercase }}</td>
+                            <td>{{ user.dishName | uppercase }}</td>
+                            <td>{{ user.amount }}</td>
+                            <td>{{ user.status }}</td>
+                            <!--data table -->
+                            <td>
+                                <button type="button" class="btn-warning" id="{{ user.id }}" data-toggle="modal"
+                                    [attr.data-target]="'#exampleModal-' + user.id">
+                                    <i class="fas fa-edit fa-2x"></i>
+                                </button>
+                                <button type="button" class="btn-danger mx-3">
+                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal-{{user.id}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Bill-Details
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="" #billingForm="ngForm">
+                                                <div class="modal-body">
+                                                    <!-- modal body -->
+                                                    <div class="form-group">
+                                                        <label for="concept" class="col-sm-12 control-label">Customer
+                                                            Name</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="custNameField"
+                                                                value={{user.custName}} name="custName" ngModel>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="description" class="col-sm-12 control-label">Dish
+                                                            Name</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="dishName"
+                                                                value={{user.dishName}} name="dishName" [(ngModel)]='user.dishName' #dishName="ngModel">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="amount"
+                                                            class="col-sm-3 control-label">Amount</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="number" class="form-control" id="amount"
+                                                                value={{user.amount}} name="amount" [(ngModel)]='user.amount' #amount="ngModel">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="status"
+                                                            class="col-sm-3 control-label">Status</label>
+                                                        <div class="col-sm-9">
+                                                            <select class="form-control" id="status" name="status">
+                                                                <option>Paid</option>
+                                                                <option>Unpaid</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="date" class="col-sm-3 control-label">Date</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="date" class="form-control" id="date"
+                                                                value={{user.date}} name="date" [(ngModel)]='user.date' #date="ngModel">
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="userId" value="{{user.id}}" #userId='ngModel' [(ngModel)]='user.id' >
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        (click)="updateBill(billingForm.value)">
+                                                        Save changes
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

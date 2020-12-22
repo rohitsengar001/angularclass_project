@@ -85,6 +85,30 @@
       "status": "Paid",
       "date": "2020-10-31",
       "id": 9
+    },
+    {
+      "custName": "RAMESH SINGH",
+      "dishName": "handi paneer",
+      "amount": 450,
+      "status": "Paid",
+      "date": "2020-11-01",
+      "id": 10
+    },
+    {
+      "custName": "RAMAKANT MISHRA",
+      "dishName": "MATAR PANEER",
+      "amount": 454,
+      "status": "Paid",
+      "date": "2020-12-21",
+      "id": 11
+    },
+    {
+      "custName": "ewrw",
+      "dishName": "wer",
+      "amount": 324,
+      "status": "Unpaid",
+      "date": "2020-12-21",
+      "id": 12
     }
   ],
   "profile": {
