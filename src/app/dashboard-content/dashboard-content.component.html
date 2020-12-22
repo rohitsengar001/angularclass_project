@@ -68,7 +68,8 @@
                                                             Name</label>
                                                         <div class="col-sm-9">
                                                             <input type="text" class="form-control" id="custNameField"
-                                                                value={{user.custName}} name="custName" ngModel>
+                                                                value={{user.custName}} name="custName"
+                                                                [(ngModel)]="user.custName" #custName='ngModel'>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -76,7 +77,8 @@
                                                             Name</label>
                                                         <div class="col-sm-9">
                                                             <input type="text" class="form-control" id="dishName"
-                                                                value={{user.dishName}} name="dishName" [(ngModel)]='user.dishName' #dishName="ngModel">
+                                                                value={{user.dishName}} name="dishName"
+                                                                [(ngModel)]='user.dishName' #dishName="ngModel">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -84,16 +86,24 @@
                                                             class="col-sm-3 control-label">Amount</label>
                                                         <div class="col-sm-9">
                                                             <input type="number" class="form-control" id="amount"
-                                                                value={{user.amount}} name="amount" [(ngModel)]='user.amount' #amount="ngModel">
+                                                                value={{user.amount}} name="amount"
+                                                                [(ngModel)]='user.amount' #amount="ngModel">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="status"
                                                             class="col-sm-3 control-label">Status</label>
                                                         <div class="col-sm-9">
-                                                            <select class="form-control" id="status" name="status">
-                                                                <option>Paid</option>
+                                                            <select class="form-control" id="status" name="status"
+                                                                *ngIf="user.status == 'Paid'" [(ngModel)]='user.status'>
+                                                                <option selected>Paid</option>
                                                                 <option>Unpaid</option>
+                                                            </select>
+                                                            <select class="form-control" id="status" name="status"
+                                                                *ngIf="user.status == 'Unpaid'"
+                                                                [(ngModel)]='user.status'>
+                                                                <option>Paid</option>
+                                                                <option selected>Unpaid</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -101,10 +111,12 @@
                                                         <label for="date" class="col-sm-3 control-label">Date</label>
                                                         <div class="col-sm-9">
                                                             <input type="date" class="form-control" id="date"
-                                                                value={{user.date}} name="date" [(ngModel)]='user.date' #date="ngModel">
+                                                                value={{user.date}} name="date" [(ngModel)]='user.date'
+                                                                #date="ngModel">
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="userId" value="{{user.id}}" #userId='ngModel' [(ngModel)]='user.id' >
+                                                    <input type="hidden" name="userId" value="{{user.id}}"
+                                                        #userId='ngModel' [(ngModel)]='user.id'>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

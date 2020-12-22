@@ -7,14 +7,7 @@ import { HttpService } from '../http.service';
 })
 export class DashboardContentComponent implements OnInit {
   users;
-  userObj={
-    custName:"",
-    dishName:"", 
-    amount:"",
-    date:"",
-    id:""
-  };
-  data = 'hey';
+  status;
 
   constructor(private httpService: HttpService) {}
 
@@ -22,18 +15,20 @@ export class DashboardContentComponent implements OnInit {
     this.getBill();
   }
 
+  //get api call 
   getBill(bill?) {
     this.httpService.getBill().subscribe((info) => {
       // console.log(info,'data')
       this.users = info;
-      console.log(Object.keys(info[0]));
+      console.log(Object.keys(info[3]));
       // console.log(Object.values[info[0]])
     });
   }
   updateBill(form){
-    console.log(this.userObj);
-    // this.httpService.editBill(this.userObj).subscribe((info)=>{
-    //   form.reset();
-    // })
+    console.log(form);
+    // this.status=form.status;
+    this.httpService.editBill(form).subscribe((info)=>{
+      // form.reset();
+    })
   }
 } 

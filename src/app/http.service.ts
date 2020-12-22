@@ -21,7 +21,9 @@ export class HttpService {
      return this.httpClient.post<any>(`${environment.baseUrl}/bill`,data)
    }
    editBill(data){
-     return this.httpClient.put(`${environment.baseUrl}/bill/data.userId`,data)
+     console.log(data.userId);
+     let userId=data.userId;
+     return this.httpClient.put(`${environment.baseUrl}/bill/`+userId,data)
    } 
    deleteBill(data){
      return this.httpClient.delete(`${environment.baseUrl}/bill/data.id`)

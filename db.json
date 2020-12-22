@@ -15,100 +15,13 @@
   ],
   "bill": [
     {
-      "custName": "RAKESH KANT",
+      "custName": "AKASH GAUR",
       "dishName": "MATAR PANEER",
-      "amount": 345,
-      "status": "Paid",
-      "date": "2020-10-24",
+      "amount": 234,
+      "date": "2020-12-21",
+      "userId": 1,
+      "status": "Unpaid",
       "id": 1
-    },
-    {
-      "custName": "ROHIT",
-      "dishName": "MATAR PANEER",
-      "amount": 345,
-      "status": "Paid",
-      "date": "2020-10-24",
-      "id": 2
-    },
-    {
-      "custName": "sds",
-      "dishName": "wewe",
-      "amount": 123,
-      "status": "Unpaid",
-      "date": "2020-10-24",
-      "id": 3
-    },
-    {
-      "custName": "ROHIT",
-      "dishName": "SAHI PANEER",
-      "amount": 340,
-      "status": "Paid",
-      "date": "2020-10-24",
-      "id": 4
-    },
-    {
-      "custName": "AKASH SHARMA",
-      "dishName": "HANDI PANEER",
-      "amount": 235,
-      "status": "Unpaid",
-      "date": "2020-10-24",
-      "id": 5
-    },
-    {
-      "custName": "RAMESH ",
-      "dishName": "BEGAN KA BHARTA",
-      "amount": 235,
-      "status": "Unpaid",
-      "date": "2020-10-23",
-      "id": 6
-    },
-    {
-      "custName": "RAHUL SENGAR",
-      "dishName": "MATAR PANEER",
-      "amount": 335,
-      "status": "Paid",
-      "date": "2020-10-24",
-      "id": 7
-    },
-    {
-      "custName": "pawan",
-      "dishName": "matar paneer",
-      "amount": 232,
-      "status": "Paid",
-      "date": "2020-10-31",
-      "id": 8
-    },
-    {
-      "custName": "ramesh",
-      "dishName": "matar paneer",
-      "amount": 343,
-      "status": "Paid",
-      "date": "2020-10-31",
-      "id": 9
-    },
-    {
-      "custName": "RAMESH SINGH",
-      "dishName": "handi paneer",
-      "amount": 450,
-      "status": "Paid",
-      "date": "2020-11-01",
-      "id": 10
-    },
-    {
-      "custName": "RAMAKANT MISHRA",
-      "dishName": "MATAR PANEER",
-      "amount": 454,
-      "status": "Paid",
-      "date": "2020-12-21",
-      "id": 11
-    },
-    {
-      "custName": "ewrw",
-      "dishName": "wer",
-      "amount": 324,
-      "status": "Unpaid",
-      "date": "2020-12-21",
-      "id": 12
     }
   ],
   "profile": {
