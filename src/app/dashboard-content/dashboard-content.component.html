@@ -30,7 +30,7 @@
                         </tr>
                     </tfoot>
                     <tbody *ngFor="let user of users">
-                        <tr>
+                        <tr id="tabledata-{{user.id}}">
                             <td>{{ user.id }}</td>
                             <td>{{ user.date }}</td>
                             <td>{{ user.custName | uppercase }}</td>
@@ -43,9 +43,37 @@
                                     [attr.data-target]="'#exampleModal-' + user.id">
                                     <i class="fas fa-edit fa-2x"></i>
                                 </button>
-                                <button type="button" class="btn-danger mx-3">
+                                <!-- <button type="button" class="btn-danger mx-3"
+                                    (click)="deleteBill(user.id,'tabledata-'+user.id)">
+                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                </button> -->
+                                <button type="button" class="btn-danger mx-3"
+                                    data-toggle="modal" [attr.data-target]="'#deleteModal-'+user.id">
                                     <i class="fas fa-trash-alt fa-2x"></i>
                                 </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModal-{{user.id}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete Bill</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <b class="text-danger">Are you sure to delete this bill?</b>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="closeBtn-deleteModal-{{user.id}}" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-danger" (click)="deleteBill(user.id,'tabledata-'+user.id)">delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal-{{user.id}}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,15 +81,16 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">
-                                                    Bill-Details
+                                                    Update Bill-Details
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <form action="" #billingForm="ngForm">
-                                                <div class="modal-body">
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="" #billingForm="ngForm">
+                                            <div class="modal-body">
+                                                    <p class="text-danger">!Are you sure want to do this </p>
                                                     <!-- modal body -->
                                                     <div class="form-group">
                                                         <label for="concept" class="col-sm-12 control-label">Customer
@@ -119,12 +148,12 @@
                                                         #userId='ngModel' [(ngModel)]='user.id'>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
+                                                    <button type="button" id="closeBtn-{{user.id}}" class="btn btn-secondary"
                                                         data-dismiss="modal">
                                                         Close
                                                     </button>
                                                     <button type="submit" class="btn btn-primary"
-                                                        (click)="updateBill(billingForm.value)">
+                                                        (click)="updateBill(billingForm,user.id)">
                                                         Save changes
                                                     </button>
                                                 </div>

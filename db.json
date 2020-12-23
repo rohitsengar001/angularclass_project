@@ -15,13 +15,22 @@
   ],
   "bill": [
     {
-      "custName": "AKASH GAUR",
-      "dishName": "MATAR PANEER",
+      "custName": "ranjan sharma",
+      "dishName": "matarpaneer",
       "amount": 234,
-      "date": "2020-12-21",
+      "date": "2020-12-23",
       "userId": 1,
-      "status": "Unpaid",
+      "status": "Paid",
       "id": 1
+    },
+    {
+      "custName": "NARANG",
+      "dishName": "matarpaneer",
+      "amount": 234,
+      "date": "2020-12-23",
+      "userId": 2,
+      "status": "Unpaid",
+      "id": 2
     }
   ],
   "profile": {

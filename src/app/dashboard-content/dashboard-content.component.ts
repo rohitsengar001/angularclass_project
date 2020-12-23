@@ -20,15 +20,27 @@ export class DashboardContentComponent implements OnInit {
     this.httpService.getBill().subscribe((info) => {
       // console.log(info,'data')
       this.users = info;
-      console.log(Object.keys(info[3]));
+      // console.log(Object.keys(info[3]));
       // console.log(Object.values[info[0]])
     });
   }
-  updateBill(form){
-    console.log(form);
+  updateBill(form,userId){
+    
     // this.status=form.status;
-    this.httpService.editBill(form).subscribe((info)=>{
-      // form.reset();
+    this.httpService.editBill(form.value).subscribe((info)=>{
+      console.log(form);
+      let closeBtn=document.getElementById('closeBtn-'+userId);
+      closeBtn.click();
     })
+  }
+
+  deleteBill(userId,tablerRowID){
+    // console.log(form);
+    let tableRow=document.getElementById(tablerRowID);
+    let closeBtn=document.getElementById("closeBtn-deleteModal-"+userId);
+    closeBtn.click();
+    tableRow.style.display='none';
+    this.httpService.deleteBill(userId).subscribe();
+    
   }
 } 

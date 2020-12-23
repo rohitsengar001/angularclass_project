@@ -25,7 +25,7 @@ export class HttpService {
      let userId=data.userId;
      return this.httpClient.put(`${environment.baseUrl}/bill/`+userId,data)
    } 
-   deleteBill(data){
-     return this.httpClient.delete(`${environment.baseUrl}/bill/data.id`)
+   deleteBill(dataId){
+     return this.httpClient.delete(`${environment.baseUrl}/bill/`+dataId)
    }
 }
